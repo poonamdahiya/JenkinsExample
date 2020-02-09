@@ -21,7 +21,7 @@ public class ExampleTest {
     };
     private Eyes eyes = new Eyes();
     private WebDriver driver;
-    private String applitoolsKey = System.getenv("APPLITOOLS_API_KEY");
+//    private String applitoolsKey = System.getenv("APPLITOOLS_API_KEY");
     private static BatchInfo batch;
     @BeforeClass
     public static void batchInitialization(){
@@ -30,7 +30,7 @@ public class ExampleTest {
     }
     @Before
     public void setUp () throws Exception {
-        eyes.setApiKey(applitoolsKey);
+        eyes.setApiKey("JgD6gcNB7106c3oQgyOrLimZI7tId1F8R98Gb1r3D6IgTQ110");
         System.out.println("Applitools API Key :" + System.getenv("APPLITOOLS_API_KEY"));
         //Lets see now
         //Hide scrollbars on older browsers. Usually IE includes them...
