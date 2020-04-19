@@ -26,7 +26,7 @@ public class ExampleTest {
     @BeforeClass
     public static void batchInitialization(){
         batch = new BatchInfo(System.getenv("APPLITOOLS_BATCH_NAME"));
-        System.out.println("Batch Name:" + System.getenv("APPLITOOLS_BATCH_NAME"));
+        System.out.println("Batch Name :" + System.getenv("APPLITOOLS_BATCH_NAME"));
     }
     @Before
     public void setUp () throws Exception {
