@@ -23,6 +23,7 @@ public class ExampleTest {
     private WebDriver driver;
 //    private String applitoolsKey = System.getenv("APPLITOOLS_API_KEY");
     private static BatchInfo batch;
+//    private https://hooks.slack.com/services/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
     @BeforeClass
     public static void batchInitialization(){
         batch = new BatchInfo(System.getenv("APPLITOOLS_BATCH_NAME"));
@@ -58,6 +59,7 @@ public class ExampleTest {
         //output detailed log data to console...
         eyes.setLogHandler(new StdoutLogHandler(true));
     }
+
     @Test
     public void GithubHomePage () throws Exception {
         driver = new ChromeDriver();
@@ -75,6 +77,8 @@ public class ExampleTest {
     public void tearDown () throws Exception {
         driver.quit();
         TestResults results = eyes.close(false);
+        EyesSlack.post(results , "https://hooks.slack.com/services/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");
+        System.out.println("Results:");
         System.out.println(results);
         assertEquals(true, results.isPassed());
     }
