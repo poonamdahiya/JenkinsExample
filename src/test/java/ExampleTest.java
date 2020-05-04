@@ -4,13 +4,9 @@ import com.applitools.eyes.selenium.StitchMode;
 import junit.framework.JUnit4TestAdapter;
 import org.junit.*;
 import org.junit.rules.TestName;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import java.net.URL;
+
 import static org.junit.Assert.assertEquals;
 public class ExampleTest {
     @Rule
@@ -26,16 +22,15 @@ public class ExampleTest {
 //    private https://hooks.slack.com/services/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
     @BeforeClass
     public static void batchInitialization(){
-        batch = new BatchInfo(System.getenv("APPLITOOLS_BATCH_NAME"));
-        System.out.println("Batch Name :" + System.getenv("APPLITOOLS_BATCH_NAME"));
+        batch = new BatchInfo("MyTestBatch");
+        System.out.println("Batch Name :" + batch);
     }
     @Before
     public void setUp () throws Exception {
+//        eyes.setAppName("Applitools Demo");
         eyes.setApiKey("JgD6gcNB7106c3oQgyOrLimZI7tId1F8R98Gb1r3D6IgTQ110");
-        System.out.println("Applitools API Key :" + System.getenv("APPLITOOLS_API_KEY"));
-        //Lets see now
-        //Hide scrollbars on older browsers. Usually IE includes them...
-        //Demo
+//        System.out.println("Applitools API Key :" + System.getenv("APPLITOOLS_API_KEY"));
+
         eyes.setHideScrollbars(true);
         //Take a full page screenshot
         eyes.setForceFullPageScreenshot(false);
@@ -46,13 +41,15 @@ public class ExampleTest {
         //Set batch name. Essentially a folder name to group your images.
         //Set only once per Jenkins job
         //http://support.applitools.com/customer/en/portal/articles/2689601-integration-with-the-jenkins-plugin
-        if (System.getenv("APPLITOOLS_BATCH_ID") != null ) {
-            System.out.println("Applitools Batch ID is " + System.getenv("APPLITOOLS_BATCH_ID"));
-            batch.setId(System.getenv("APPLITOOLS_BATCH_ID"));
-        }
+//        if (System.getenv("APPLITOOLS_BATCH_ID") != null ) {
+//            System.out.println("Applitools Batch ID is " + System.getenv("APPLITOOLS_BATCH_ID"));
+//            batch.setId(System.getenv("APPLITOOLS_BATCH_ID"));
+//        }
         //End of - Set only once per Jenkins job
         //batch.
         eyes.setBatch(batch);
+        eyes.setBranchName("Release");
+//        eyes.setParentBranchName("Release");
         //set new baseline images. Use this when your site has changed without having to do in the dashboard.
         //eyes.setSaveFailedTests(true);
         //some changes
@@ -68,9 +65,9 @@ public class ExampleTest {
         // Visual checkpoint #1 - Check the login page.
         eyes.checkWindow("Home Page");
         // This will create a test with two test steps.
-        driver.findElement(By.id("log-in")).click();
-        // Visual checkpoint #2 - Check the app page.
-        eyes.checkWindow("App Window");
+//        driver.findElement(By.id("log-in")).click();
+//        // Visual checkpoint #2 - Check the app page.
+//        eyes.checkWindow("App Window");
         // End the test.
     }
     @After
@@ -78,7 +75,7 @@ public class ExampleTest {
         driver.quit();
         TestResults results = eyes.close(false);
         EyesSlack.post(results , "https://hooks.slack.com/services/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");
-        System.out.println("Results:");
+        System.out.println("Results: ");
         System.out.println(results);
         assertEquals(true, results.isPassed());
     }
