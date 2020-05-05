@@ -39,7 +39,7 @@ public class ExampleTest {
         //Set match level to Layout2 for dynamic content sites.
         eyes.setMatchLevel(MatchLevel.STRICT);
         String batchId = System.getenv("APPLITOOLS_BATCH_ID");
-        System.out.println("Applitools  Batch ID is " + batchId);
+        System.out.println("Applitools Batch ID is " + batchId);
 
 
         if (batchId != null ) {
