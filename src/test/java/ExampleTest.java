@@ -38,25 +38,17 @@ public class ExampleTest {
         eyes.setStitchMode(StitchMode.CSS);
         //Set match level to Layout2 for dynamic content sites.
         eyes.setMatchLevel(MatchLevel.STRICT);
-
-//        export APPLITOOLS_BATCH_ID=`echo ${GIT_COMMIT}`
-        //Set batch name. Essentially a folder name to group your images.
-        //Set only once per Jenkins job
-        //http://support.applitools.com/customer/en/portal/articles/2689601-integration-with-the-jenkins-plugin
-        if (System.getenv("APPLITOOLS_BATCH_ID") != null ) {
-            System.out.println("Applitools Batch ID is " + System.getenv("APPLITOOLS_BATCH_ID"));
-            batch.setId(System.getenv("APPLITOOLS_BATCH_ID"));
-        System.out.println("APPLITOOLS_BATCH_ID:" + System.getenv("APPLITOOLS_BATCH_ID"));
+        String batchId = System.getenv("APPLITOOLS_BATCH_ID");
+        if (batchId != null ) {
+            System.out.println("Applitools Batch ID is " + batchId);
+            batch.setId(batchId);
         }
-        //End of - Set only once per Jenkins job
-        //batch.
+
         eyes.setBatch(batch);
         eyes.setBranchName("Release");
 //        eyes.setParentBranchName("Release");
         //set new baseline images. Use this when your site has changed without having to do in the dashboard.
         //eyes.setSaveFailedTests(true);
-        //some changes
-        //output detailed log data to console...
         eyes.setLogHandler(new StdoutLogHandler(true));
     }
 
