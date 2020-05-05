@@ -40,7 +40,7 @@ public class ExampleTest {
         eyes.setMatchLevel(MatchLevel.STRICT);
         String batchId = System.getenv("APPLITOOLS_BATCH_ID");
         if (batchId != null ) {
-            System.out.println("Applitools Batch ID is " + batchId);
+            System.out.println("Applitools  Batch ID is " + batchId);
             batch.setId(batchId);
         }
 
