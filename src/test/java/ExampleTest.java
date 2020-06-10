@@ -4,6 +4,7 @@ import com.applitools.eyes.selenium.StitchMode;
 import junit.framework.JUnit4TestAdapter;
 import org.junit.*;
 import org.junit.rules.TestName;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -24,6 +25,8 @@ public class ExampleTest {
     public static void batchInitialization(){
         batch = new BatchInfo("MyTestBatch");
         System.out.println("Batch Name :" + batch);
+        String sequenceName = "Demo App";
+        batch.setSequenceName(sequenceName);
     }
     @Before
     public void setUp () throws Exception {
@@ -62,11 +65,11 @@ public class ExampleTest {
         driver.get("https://demo.applitools.com");
         // Visual checkpoint #1 - Check the login page.
         eyes.checkWindow("Home Page");
-        // This will create a test with two test steps.
-//        driver.findElement(By.id("log-in")).click();
-//        // Visual checkpoint #2 - Check the app page.
-//        eyes.checkWindow("App Window");
-        // End the test.
+//         This will create a test with two test steps.
+        driver.findElement(By.id("log-in")).click();
+        // Visual checkpoint #2 - Check the app page.
+        eyes.checkWindow("App Window");
+//         End the test.
     }
     @After
     public void tearDown () throws Exception {
