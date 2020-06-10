@@ -28,7 +28,7 @@ public class ExampleTest {
     @Before
     public void setUp () throws Exception {
 //        eyes.setAppName("Applitools Demo");
-        eyes.setApiKey("JgD6gcNB7106c3oQgyOrLimZI7tId1F8R98Gb1r3D6IgTQ110");
+        eyes.setApiKey("gq3MgFaE0iW1PBAx45HPeQRuQ1Ed110BRxz2ZOk4N26TA110");
 //        System.out.println("Applitools API Key :" + System.getenv("APPLITOOLS_API_KEY"));
 
         eyes.setHideScrollbars(true);
