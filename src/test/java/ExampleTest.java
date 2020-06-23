@@ -26,6 +26,7 @@ public class ExampleTest {
         batch = new BatchInfo("MyTestBatch");
         System.out.println("Batch Name :" + batch);
         String sequenceName = "Demo App";
+        batch.setNotifyOnCompletion(true);
 //        batch.setSequenceName(sequenceName);
     }
     @Before
