@@ -26,7 +26,7 @@ public class ExampleTest {
         batch = new BatchInfo("MyTestBatch");
         System.out.println("Batch Name :" + batch);
         String sequenceName = "Demo App";
-        batch.setSequenceName(sequenceName);
+//        batch.setSequenceName(sequenceName);
     }
     @Before
     public void setUp () throws Exception {
@@ -51,8 +51,8 @@ public class ExampleTest {
         }
 
         eyes.setBatch(batch);
-//        eyes.setBranchName("Release");
-//        eyes.setParentBranchName("Release");
+//        eyes.setBranchName("MyBranch");
+//        eyes.setParentBranchName("ParentBranch");
         //set new baseline images. Use this when your site has changed without having to do in the dashboard.
         //eyes.setSaveFailedTests(true);
         eyes.setLogHandler(new StdoutLogHandler(true));
