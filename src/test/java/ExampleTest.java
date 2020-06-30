@@ -1,6 +1,8 @@
 import com.applitools.eyes.*;
+import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
 import com.applitools.eyes.selenium.StitchMode;
+import com.applitools.eyes.visualgrid.services.VisualGridRunner;
 import junit.framework.JUnit4TestAdapter;
 import org.junit.*;
 import org.junit.rules.TestName;
@@ -16,7 +18,8 @@ public class ExampleTest {
             return String.format("%s", super.getMethodName());
         }
     };
-    private Eyes eyes = new Eyes();
+    ClassicRunner runner = new ClassicRunner();
+    private Eyes eyes = new Eyes(runner);
     private WebDriver driver;
 //    private String applitoolsKey = System.getenv("APPLITOOLS_API_KEY");
     private static BatchInfo batch;
@@ -53,6 +56,7 @@ public class ExampleTest {
 
         eyes.setBatch(batch);
 //        eyes.setBranchName("MyBranch");
+//        comment
 //        eyes.setParentBranchName("ParentBranch");
         //set new baseline images. Use this when your site has changed without having to do in the dashboard.
         //eyes.setSaveFailedTests(true);
@@ -75,11 +79,14 @@ public class ExampleTest {
     @After
     public void tearDown () throws Exception {
         driver.quit();
-        TestResults results = eyes.close(false);
-        EyesSlack.post(results , "https://hooks.slack.com/services/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");
-        System.out.println("Results: ");
-        System.out.println(results);
-        assertEquals(true, results.isPassed());
+        eyes.close(false);
+//        TestResults results = eyes.close(false);
+        TestResultsSummary allTestResults = runner.getAllTestResults();
+        System.out.println(allTestResults);
+//        EyesSlack.post(allTestResults , "https://hooks.slack.com/services/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");
+//        System.out.println("Results: ");
+//        System.out.println(allTestResults);
+//        assertEquals(true, allTestResults.getAllResults().equals());
     }
     public static void main(String[] args) {
         junit.textui.TestRunner.run(new JUnit4TestAdapter(ExampleTest.class));
