@@ -26,15 +26,14 @@ public class ExampleTest {
 //    private https://hooks.slack.com/services/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
     @BeforeClass
     public static void batchInitialization(){
-        batch = new BatchInfo("MyTestBatch");
+        batch = new BatchInfo("GitHubMyTestBatch");
         System.out.println("Batch Name :" + batch);
-        String sequenceName = "Demo App";
+        String sequenceName = "New Demo App";
         batch.setNotifyOnCompletion(true);
 //        batch.setSequenceName(sequenceName);
     }
     @Before
     public void setUp () throws Exception {
-//        eyes.setAppName("Applitools Demo");
         eyes.setApiKey("JgD6gcNB7106c3oQgyOrLimZI7tId1F8R98Gb1r3D6IgTQ110");
 //        System.out.println("Applitools API Key :" + System.getenv("APPLITOOLS_API_KEY"));
 
@@ -66,14 +65,14 @@ public class ExampleTest {
     @Test
     public void GithubHomePage () throws Exception {
         driver = new ChromeDriver();
-        eyes.open(driver, "Demo App", "Jenkins GitHub Example", new RectangleSize(900, 600));
+        eyes.open(driver, "GitHub Demo App", "Jenkins GitHub Example New Test", new RectangleSize(900, 600));
         driver.get("https://demo.applitools.com");
         // Visual checkpoint #1 - Check the login page.
-        eyes.checkWindow("Home Page");
+        eyes.checkWindow("Github Home Page");
 //         This will create a test with two test steps.
         driver.findElement(By.id("log-in")).click();
         // Visual checkpoint #2 - Check the app page.
-        eyes.checkWindow("App Window");
+        eyes.checkWindow("Github App Window");
 //         End the test.
     }
     @After
