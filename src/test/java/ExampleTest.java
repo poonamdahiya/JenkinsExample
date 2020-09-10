@@ -10,6 +10,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import javax.net.ssl.KeyManager;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import java.security.SecureRandom;
+
 import static org.junit.Assert.assertEquals;
 public class ExampleTest {
     @Rule
@@ -30,14 +35,22 @@ public class ExampleTest {
         System.out.println("Batch Name :" + batch);
         String sequenceName = "Demo App";
         batch.setNotifyOnCompletion(true);
+
+//        System.setProperty("https.proxyHost", "proxy");
+//        System.setProperty("https.proxyPort", "8080");
+
+//        SSLContext ctx = SSLContext.getInstance("TLS");
+//        ctx.init(new KeyManager[0], new TrustManager[]{new DefaultTrustManager()}, new SecureRandom());
+//        SSLContext.setDefault(ctx);
+
 //        batch.setSequenceName(sequenceName);
     }
+
     @Before
     public void setUp () throws Exception {
 //        eyes.setAppName("Applitools Demo");
         eyes.setApiKey("JgD6gcNB7106c3oQgyOrLimZI7tId1F8R98Gb1r3D6IgTQ110");
 //        System.out.println("Applitools API Key :" + System.getenv("APPLITOOLS_API_KEY"));
-
         eyes.setHideScrollbars(true);
         //Take a full page screenshot
         eyes.setForceFullPageScreenshot(false);
@@ -47,7 +60,6 @@ public class ExampleTest {
         eyes.setMatchLevel(MatchLevel.STRICT);
         String batchId = System.getenv("APPLITOOLS_BATCH_ID");
         System.out.println("Applitools Batch ID is " + batchId);
-
 
         if (batchId != null ) {
             System.out.println("Applitools  Batch ID is " + batchId);
