@@ -26,7 +26,7 @@ public class ExampleTest {
     ClassicRunner runner = new ClassicRunner();
     private Eyes eyes = new Eyes(runner);
     private WebDriver driver;
-//    private String applitoolsKey = System.getenv("APPLITOOLS_API_KEY");
+
     private static BatchInfo batch;
 //    private https://hooks.slack.com/services/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
     @BeforeClass
@@ -86,13 +86,14 @@ public class ExampleTest {
         driver.findElement(By.id("log-in")).click();
         // Visual checkpoint #2 - Check the app page.
         eyes.checkWindow("App Window");
-//         End the test.
+
     }
     @After
     public void tearDown () throws Exception {
         driver.quit();
         eyes.close(false);
 //        TestResults results = eyes.close(false);
+        //test
         TestResultsSummary allTestResults = runner.getAllTestResults();
         System.out.println(allTestResults);
 //        EyesSlack.post(allTestResults , "https://hooks.slack.com/services/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");
