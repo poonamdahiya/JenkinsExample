@@ -15,7 +15,6 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import java.security.SecureRandom;
 
-import static org.junit.Assert.assertEquals;
 public class ExampleTest {
     @Rule
     public TestName name = new TestName() {
