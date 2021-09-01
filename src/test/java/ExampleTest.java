@@ -28,16 +28,6 @@ public class ExampleTest {
         batch = new BatchInfo("MyTestBatch");
         System.out.println("Batch Name :" + batch);
         String sequenceName = "Demo App";
-        batch.setNotifyOnCompletion(true);
-
-//        System.setProperty("https.proxyHost", "proxy");
-//        System.setProperty("https.proxyPort", "8080");
-
-//        SSLContext ctx = SSLContext.getInstance("TLS");
-//        ctx.init(new KeyManager[0], new TrustManager[]{new DefaultTrustManager()}, new SecureRandom());
-//        SSLContext.setDefault(ctx);
-
-//        batch.setSequenceName(sequenceName);
     }
 
     @Before
