@@ -27,7 +27,7 @@ public class ExampleTest {
     public static void batchInitialization(){
         batch = new BatchInfo("MyTestBatch");
         System.out.println("Batch Name :" + batch);
-        String sequenceName = "Demo App";
+//        String sequenceName = "Demo App";
     }
 
     @Before
