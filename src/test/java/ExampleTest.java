@@ -35,7 +35,7 @@ public class ExampleTest {
 //        eyes.setAppName("Applitools Demo");
         eyes.setApiKey("0zWGBGZNbDTfD9jmmvHMRfX9kltnHlw4BcvQHEAZj7I110");
         eyes.setHideScrollbars(true);
-        //Take a full page screenshot
+        //Take a full page screenshot test
         eyes.setForceFullPageScreenshot(true);
         //Stitch pages together and remove floating headers and footers...
         eyes.setStitchMode(StitchMode.CSS);
