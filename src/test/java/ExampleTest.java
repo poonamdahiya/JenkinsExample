@@ -71,6 +71,7 @@ public class ExampleTest {
 
         TestResultsSummary allTestResults = runner.getAllTestResults();
         System.out.println(allTestResults);
+//        System.out.println(allTestResults);
 
     }
     public static void main(String[] args) {
